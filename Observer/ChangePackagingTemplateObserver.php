@@ -73,6 +73,9 @@ class ChangePackagingTemplateObserver implements ObserverInterface
         ) {
             /** @var \Magento\Sales\Model\Order\Shipment $currentShipment */
             $currentShipment = $block->getShipment();
+            if ($currentShipment === NULL) {
+            	return;
+			}
             /** @var \Magento\Sales\Api\Data\OrderInterface|\Magento\Sales\Model\Order $order */
             $order = $currentShipment->getOrder();
             $shippingMethod = $order->getShippingMethod(true);
