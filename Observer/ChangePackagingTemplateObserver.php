@@ -72,7 +72,7 @@ class ChangePackagingTemplateObserver implements ObserverInterface
             && $block->getNameInLayout() === 'shipment_packaging'
         ) {
             /** @var \Magento\Sales\Model\Order\Shipment $currentShipment */
-            $currentShipment = $this->coreRegistry->registry('current_shipment');
+            $currentShipment = $block->getShipment();
             /** @var \Magento\Sales\Api\Data\OrderInterface|\Magento\Sales\Model\Order $order */
             $order = $currentShipment->getOrder();
             $shippingMethod = $order->getShippingMethod(true);
